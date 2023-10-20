@@ -1,0 +1,6 @@
+../model/refrigerant_property.c:47:7:cal_t_sat	1
+../model/refrigerant_property.c:68:7:cal_h_sat_gas	1
+../model/refrigerant_property.c:100:7:cal_h_sh_gas	1
+../model/refrigerant_property.c:135:7:cal_vol_sat_gas	1
+../model/refrigerant_property.c:164:7:cal_dens_sh_gas	1
+../model/refrigerant_property.c:197:6:refrig_prop_test	11

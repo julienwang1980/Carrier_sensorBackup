@@ -1,0 +1,3 @@
+C:/Users/wangyanf1/OneDrive/OneDrive - Carrier Corporation/project/sensor_backup/programe/Mini_VRV/build/debug/build/CMakeFiles/Mini_VRV.dir
+C:/Users/wangyanf1/OneDrive/OneDrive - Carrier Corporation/project/sensor_backup/programe/Mini_VRV/build/debug/build/CMakeFiles/edit_cache.dir
+C:/Users/wangyanf1/OneDrive/OneDrive - Carrier Corporation/project/sensor_backup/programe/Mini_VRV/build/debug/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,4 @@
+../model/compressor_model.c:76:7:cal_volume_flow_rate	1
+../model/compressor_model.c:110:7:cal_power	1
+../model/compressor_model.c:147:7:cal_current	2
+../model/compressor_model.c:169:6:compressor_model_test	1

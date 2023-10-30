@@ -172,10 +172,17 @@ float cal_dens_sh_gas(float p, float t)
 	dens_sat_gas = pow((1/(exp((-11.93809+1873.567/(t_sat+273.15)))*(5.24253-369.32461*pow(10,(-4)) *
 						t_sat+111.95294*pow(10,(-6))*pow(t_sat,2)-31.84587*pow(10,(-7))*pow(t_sat,3))))
 					,(-0.4))+0.75;
-
+	if (!dens_sat_gas)
+	{
+		return 0;
+	}
 	coe_A = -((1+COE[0]*t_sat_f+COE[1]*pow(t_sat_f,2)+COE[2]*pow(t_sat_f,3))/dens_sat_gas +
 				(COE[3]+COE[4]*t_sat_f+COE[5]*pow(t_sat_f,2)+COE[6]*pow(t_sat_f,3))/pow(dens_sat_gas,2) +
 				(COE[7]+COE[8]*t_sat_f+COE[9]*pow(t_sat_f,2)+COE[10]*pow(t_sat_f,3))/pow(dens_sat_gas,3));
+	if (!coe_A)
+	{
+		return 0;
+	}
 	coe_B = 1+COE[0]*(t+273.15)+COE[1]*pow((t+273.15),2)+COE[2]*pow((t+273.15),3);
 	coe_C = COE[3]+COE[4]*(t+273.15)+COE[5]*pow((t+273.15),2)+COE[6]*pow((t+273.15),3);
 	coe_D = COE[7]+COE[8]*(t+273.15)+COE[9]*pow((t+273.15),2)+COE[10]*pow((t+273.15),3);

@@ -26,6 +26,7 @@
 #include <string.h>
 #include "task.h"
 #include <stdio.h>
+#include <math.h>
 
 /* USER CODE END Includes */
 
@@ -334,12 +335,21 @@ void StartDefaultTask(void *argument)
 * @retval None
 */
 /* USER CODE END Header_StartTask02 */
+float te(float t)
+{
+	float t2;
+	t2 = t + 100 + 100/0;
+	return t2;
+}
+
 void StartTask02(void *argument)
 {
   /* USER CODE BEGIN StartTask02 */
-	uint32_t t;
+	uint32_t t, temp1, temp2;
 	float	Pd = 2152.59, Ps = 1390.88, CompSpeed = 1740, ST = 20.54;
 	float t_dis, p_dis;
+
+	float temp;
 
   /* Infinite loop */
   for(;;)
@@ -351,7 +361,11 @@ void StartTask02(void *argument)
 	  p_dis = pred_Pdis(641, -2.23, 56.39, 7080);
 	  time2 = counter - t;
 //	  sensor_pre_test();
+	  temp1 = 10;
 	  counter = 0;
+	  temp = te(0.1);
+	  temp1 = temp/1;
+	  temp2 = fmod(temp,1.0);
 	  osDelay(1000);
   }
 

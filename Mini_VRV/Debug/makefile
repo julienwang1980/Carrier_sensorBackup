@@ -65,8 +65,8 @@ all: main-build
 main-build: Mini_VRV.elf secondary-outputs
 
 # Tool invocations
-Mini_VRV.elf Mini_VRV.map: $(OBJS) $(USER_OBJS) C:\Users\wangyanf1\OneDrive\OneDrive\ -\ Carrier\ Corporation\project\sensor_backup\programe\Mini_VRV\STM32F429ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Mini_VRV.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\wangyanf1\OneDrive\OneDrive - Carrier Corporation\project\sensor_backup\programe\Mini_VRV\STM32F429ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mini_VRV.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Mini_VRV.elf Mini_VRV.map: $(OBJS) $(USER_OBJS) C:\Users\wangyanf1\OneDrive\OneDrive\ -\ Carrier\ Corporation\project\sensor_backup\Carrier_sensorBackup\Mini_VRV\STM32F429ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Mini_VRV.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\wangyanf1\OneDrive\OneDrive - Carrier Corporation\project\sensor_backup\Carrier_sensorBackup\Mini_VRV\STM32F429ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Mini_VRV.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

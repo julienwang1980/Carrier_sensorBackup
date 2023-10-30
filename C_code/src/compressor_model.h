@@ -87,11 +87,12 @@ float cal_power(float pd, float ps, float compSpeed);
  * \param[in]	pd = discharge pressure in kPa.
  * \param[in]	ps = suction pressure in kPa.
  * \param[in]	compSpeed = compressor speed in rpm.
+ * \param[in]	U = the voltage of compressor.
  *
  * \return		current in A.
 */
 //-------------------------------------------------------------------------------------------------
-float cal_current(float pd, float ps, float compSpeed);
+float cal_current(float pd, float ps, float compSpeed, float U);
 
 
 void compressor_model_test(void);

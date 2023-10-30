@@ -30,6 +30,13 @@ static const float COE_32[] = {	97.067,		-177.99,		297.6,		20.081,		11.098,		-1.
 								0.00047164,	-0.00019762,	0.3311,		-0.53155,	0.18157,	0.0000024884,	390.25,		-150.24
 							};
 
+//static const float COE_32[] = {	175.06,		-349.46,		368.02,		13.266,		1.4529,		1.0488,		0.60195,	0,
+//								0,			0.63406,		0,			0,			0.1216,		0.097799,	-0.056657,	0.24989,
+//								0.12698,	-0.082634,		4.937,		9.961,		188.97,		-561.48, 	290.08,		-0.00044022,
+//								0.00086054,	-0.00038342,	0.41032,	-0.87047,	0.31978,	0.00019287,	579.79,		-232.29
+//								};
+
+
 
 
 //-------------------------------------------------------------------------------------------------
@@ -141,28 +148,30 @@ float cal_power(float pd, float ps, float compSpeed)
  * \param[in]	pd = discharge pressure in kPa.
  * \param[in]	ps = suction pressure in kPa.
  * \param[in]	compSpeed = compressor speed in rpm.
+ * \param[in]	U = the voltage of compressor.
  *
  * \return		current in A.
 */
 //-------------------------------------------------------------------------------------------------
-float cal_current(float pd, float ps, float compSpeed)
+float cal_current(float pd, float ps, float compSpeed, float U)
 {
-	float q, s, r;
 	float power, current;
 
-	/* Calculated intermediate coefficients */
-	q = COE_Q(compSpeed);
-	r = COE_R(compSpeed);
-	s = COE_S(compSpeed);
 	/* Calculated power */
 	power = cal_power(pd, ps, compSpeed);
 
 	/* Calculated current */
-	current = power/((q*power+r)*power+s);
+	/* Calculated current */
+	if (U <= 0)
+	{
+		return 0;
+	}
+	current = power/U;
 	current = (current < 0) ? 0 : current;
 
 	return current;
 }
+
 
 
 
@@ -212,7 +221,7 @@ void compressor_model_test(void)
 
 	volume_flow_rate = cal_volume_flow_rate(Pd, Ps, CompSpeed);
 	power = cal_power(Pd, Ps, CompSpeed);
-	current =  cal_current(Pd, Ps, CompSpeed);
+	current =  cal_current(Pd, Ps, CompSpeed, 220);
 	printf("volume flow rate = %f: \r\n", volume_flow_rate);
 	printf("power = %f: \r\n", power);
 	printf("current = %f: \r\n", current);

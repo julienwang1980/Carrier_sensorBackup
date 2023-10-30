@@ -161,7 +161,6 @@ float cal_current(float pd, float ps, float compSpeed, float U)
 	power = cal_power(pd, ps, compSpeed);
 
 	/* Calculated current */
-	/* Calculated current */
 	if (U <= 0)
 	{
 		return 0;
